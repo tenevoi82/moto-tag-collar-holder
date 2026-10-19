@@ -1,0 +1,185 @@
+{
+  "cap_print_mesh": {
+    "watertight": true,
+    "winding_consistent": true,
+    "manifold_status": "Error.NoError",
+    "bodies": 1,
+    "volume_mm3": 4987.445775294704,
+    "extents_mm": [
+      45.4,
+      41.4,
+      23.117499541941
+    ],
+    "triangles": 14784
+  },
+  "cap_installed_mesh": {
+    "watertight": true,
+    "winding_consistent": true,
+    "manifold_status": "Error.NoError",
+    "bodies": 1,
+    "volume_mm3": 4987.441924194308,
+    "extents_mm": [
+      45.4,
+      41.4,
+      23.11749084473
+    ],
+    "triangles": 14784
+  },
+  "complete_plate_mesh": {
+    "watertight": true,
+    "winding_consistent": true,
+    "manifold_status": "Error.NoError",
+    "bodies": 2,
+    "volume_mm3": 8168.436776508126,
+    "extents_mm": [
+      100.85,
+      46.7793,
+      34.963599541941
+    ],
+    "triangles": 34554
+  },
+  "collisions": {
+    "cap_with_body_mm3": 0.0,
+    "cap_with_tag_mm3": 0.0,
+    "cap_with_collar_mm3": 0.0,
+    "button_2mm_keepout_mm3": 0.0,
+    "rear_air_corridor_mm3": 0.0
+  },
+  "nominal_face_gap_mm": 2.5,
+  "cell_width_mm": 4.4,
+  "cell_max_diagonal_mm": 6.222539674441619,
+  "fully_open_cells_probed": 21,
+  "straight_installation_checks": [
+    {
+      "offset_z_mm": 0.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 1.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 2.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 3.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 4.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 5.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 6.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 7.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 8.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 9.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 10.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 11.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 12.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 13.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 14.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 15.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 16.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 17.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 18.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 19.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 20.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 21.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 22.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 23.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 24.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 25.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 26.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 27.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 28.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 29.0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "offset_z_mm": 30.0,
+      "overlap_mm3": 0.0
+    }
+  ],
+  "mechanical_retention": "Both base and cap have separate closed loops captured by the same collar; no independent snap latch.",
+  "limits": [
+    "No force/fatigue/pull-off/drop/rain testing of cap. TPU can deform or tear.",
+    "2.5 mm nominal front clearance is geometric; check actual button and deflection on fitting.",
+    "1 mm sampled insertion checks are not a continuous collision simulation.",
+    "Cell aperture comparison assumes undeformed grille and tag geometry."
+  ]
+}

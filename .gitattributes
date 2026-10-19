@@ -1,0 +1,7 @@
+* text=auto
+*.stl binary
+*.3mf binary
+*.png binary
+*.py text eol=lf
+*.scad text eol=lf
+*.md text eol=lf

@@ -1,0 +1,23 @@
+# Local runtimes, private attachments and Python caches
+/.tools/
+/.codex-remote-attachments/
+**/__pycache__/
+*.py[cod]
+.env
+.env.*
+
+# Generated execution logs and duplicate slicer outputs
+/validation/**/*.log
+/validation/**/*.gcode
+/validation/**/*.3mf
+/validation/**/run_report.json
+/validation/bambu/archive_validation.json
+/validation/bambu/preflight-result.json
+/validation/bambu/holder_bambu_preview.png
+
+# Editor / OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/

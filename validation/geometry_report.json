@@ -1,0 +1,106 @@
+{
+  "main_STL": {
+    "triangles": 19808,
+    "vertices": 9896,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_volume": true,
+    "connected_bodies": 1,
+    "manifold_status": "Error.NoError",
+    "volume_mm3": 3180.997036188233,
+    "bounds_mm": [
+      [
+        -18.15,
+        -26.0793,
+        9.71089e-06
+      ],
+      [
+        18.15,
+        8.88423,
+        34.9636
+      ]
+    ],
+    "extents_mm": [
+      36.3,
+      34.96353,
+      34.96359028911
+    ]
+  },
+  "fit_test_STL": {
+    "triangles": 18480,
+    "vertices": 9240,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_volume": true,
+    "connected_bodies": 2,
+    "manifold_status": "Error.NoError",
+    "volume_mm3": 2789.130432473248,
+    "bounds_mm": [
+      [
+        -18.15,
+        -18.15,
+        0.0
+      ],
+      [
+        30.6,
+        18.15,
+        10.2
+      ]
+    ],
+    "extents_mm": [
+      48.75,
+      36.3,
+      10.2
+    ]
+  },
+  "installed_extents_mm": [
+    36.3,
+    36.30003937584685,
+    19.31755339282535
+  ],
+  "installed_bounds_mm": [
+    [
+      -18.15,
+      -18.150024362061888,
+      9.467997162255792e-06
+    ],
+    [
+      18.15,
+      18.150015013784962,
+      19.317562860822513
+    ]
+  ],
+  "nominal_dimensions_mm": {
+    "bore_diameter": 32.3,
+    "minimum_lip_opening": 29.499999999999996,
+    "collar_slot": [
+      22.3,
+      4.45
+    ],
+    "slot_between_rib_peaks": 3.95,
+    "minimum_tag_back_to_collar_top": 3.7675274661157347,
+    "design_collar_bend_radius": 40.0,
+    "analytic_collar_crown_allowance": 2.5675274661157346,
+    "analytic_air_gap_after_bend": 1.200000000000001,
+    "height_above_slot_top": 12.867527466115735
+  },
+  "clearance_checks": {
+    "assumed_tag_overlap_mm3": 0.0,
+    "straight_collar_overlap_mm3": 0.0,
+    "front_central_d29_keepout_overlap_mm3": 0.0,
+    "rear_lateral_air_corridor_overlap_mm3": 0.0
+  },
+  "geometric_layer_sections": {
+    "interval_mm": 0.2,
+    "count": 175,
+    "empty_internal_layers": 0,
+    "integrated_volume_relative_error": 7.717851564392753e-06
+  },
+  "limitations": [
+    "Tag edge radius 0.8 mm is an assumed rounded-disc reference, not a scan.",
+    "Curved-collar clearance is an analytic crown allowance; local leather bending and TPU loop deflection require physical fitting.",
+    "Physical fit-test feedback is recorded separately in FIT_TEST_RESULT.md; this script does not test forces, fatigue, acoustics, wet leather or animal use.",
+    "CGAL Simple=yes and topology/Boolean checks passed; no separate exhaustive triangle intersection test.",
+    "Geometry sections are independent of Bambu slicing. Actual G-code and support audit results are in validation/bambu and BAMBU_CHECK.md."
+  ]
+}

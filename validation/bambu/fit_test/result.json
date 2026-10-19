@@ -1,0 +1,61 @@
+{
+    "error_string": "Success.",
+    "export_time": 876,
+    "layer_height": 0.20000000298023224,
+    "plate_index": 0,
+    "prepare_time": 315,
+    "return_code": 0,
+    "sliced_plates": [
+        {
+            "feature_type_times": {
+                "Brim": 200.50186157226563,
+                "Custom": 460.10491943359375,
+                "Flush": 28.0,
+                "Gap infill": 312.14154052734375,
+                "Inner wall": 650.2975463867188,
+                "Outer wall": 649.6365356445313,
+                "Top surface": 34.504112243652344,
+                "Travel": 212.59878540039063,
+                "Undefined": 193.5871124267578
+            },
+            "filament_change_times": 0,
+            "filaments": [
+                {
+                    "filament_id": "GFU99",
+                    "id": 1,
+                    "main_used_g": 3.8053412437438965,
+                    "total_used_g": 3.8053412437438965
+                }
+            ],
+            "generate_support_material_time": 62,
+            "id": 1,
+            "infill_time": 56,
+            "layer_filament_change": 0,
+            "main_predication": 2031.678955078125,
+            "make_perimeters_time": 488,
+            "obj_cached_cnt": 0,
+            "objects": [
+                {
+                    "bbox": {
+                        "depth": 36.30000305175781,
+                        "height": 10.199999809265137,
+                        "width": 48.75,
+                        "x": 65.625,
+                        "y": 71.8499984741211,
+                        "z": 0.0
+                    },
+                    "id": 5,
+                    "name": "fit_test.stl",
+                    "triangle_count": 18480
+                }
+            ],
+            "sliced_time": 1536,
+            "sliced_time_with_cache": 762,
+            "total_predication": 2528.772216796875,
+            "triangle_count": 18480,
+            "warning_message": ""
+        }
+    ],
+    "sparse_infill_density": 40.0,
+    "wall_loops": 5
+}
