@@ -1,0 +1,15 @@
+{
+  "inputs": {
+    "fit_test_v2.scad": "4f8845da857505cd3cd58ba41e3792d3795b4e190abd7f25abeb986964790187",
+    "moto_tag_collar_holder_grid_v2.scad": "494427e7110b7b508bb77502c4a755af8059e57968fcda0f547aa3f7ded99d69",
+    "moto_tag_collar_holder_v2.scad": "2e48c14f7a77b1cb95e0a49b5ac699d91f27c68cf2080f74279b4a6adc60279f",
+    "validation/tag_reference.scad": "93afc72c6f868ff53db6d63cdf48bdea7ce609c94f940efc7ae15f7e51f5ecc5"
+  },
+  "outputs": {
+    "moto_tag_collar_holder_v2.stl": "86fee38f78a99da5a07ad740693f47ba02cbbbc14c34a6d91830b7b6d6bdab92",
+    "validation/tag_reference.stl": "a27a0e60ee12c25347af85d126c551810362c8114a42452813abb5db742a553c",
+    "moto_tag_collar_holder_grid_cap_v2.stl": "7b3dffab4910c54458346e8205632d4fafddac0ea3d41f6a099f29421fde8c5b",
+    "validation/cap_installed.stl": "5713a0595bbba13c1eea1025828852020a4c9425dfd2e24dc4be2071cd40069d",
+    "moto_tag_collar_holder_grid_v2.stl": "f84c3f2ec7b70cee08d027ee2ec0ad3e821c83dd83336959781a94b36960e987"
+  }
+}

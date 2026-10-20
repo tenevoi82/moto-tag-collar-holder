@@ -1,0 +1,32 @@
+[
+  {
+    "source": "moto_tag_collar_holder_v2.scad",
+    "output": "moto_tag_collar_holder_v2.stl",
+    "returncode": 0
+  },
+  {
+    "source": "validation/tag_reference.scad",
+    "output": "validation/tag_reference.stl",
+    "returncode": 0
+  },
+  {
+    "source": "moto_tag_collar_holder_grid_v2.scad",
+    "output": "moto_tag_collar_holder_grid_cap_v2.stl",
+    "returncode": 0
+  },
+  {
+    "source": "moto_tag_collar_holder_grid_v2.scad",
+    "output": "validation/cap_installed.stl",
+    "returncode": 0
+  },
+  {
+    "source": "moto_tag_collar_holder_grid_v2.scad",
+    "output": "moto_tag_collar_holder_grid_v2.stl",
+    "returncode": 0
+  },
+  {
+    "source": "fit_test_v2.scad",
+    "output": "validation/fit_test.csg",
+    "returncode": 0
+  }
+]

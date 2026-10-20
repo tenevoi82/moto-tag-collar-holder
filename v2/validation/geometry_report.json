@@ -1,0 +1,103 @@
+{
+  "version": 2,
+  "source_and_mesh_hashes_verified": true,
+  "body": {
+    "triangles": 21138,
+    "watertight": true,
+    "winding_consistent": true,
+    "components": 1,
+    "volume_mm3": 4200.98199005227,
+    "extents_mm": [
+      36.3,
+      36.51923,
+      36.51919028911
+    ]
+  },
+  "cap": {
+    "triangles": 14784,
+    "watertight": true,
+    "winding_consistent": true,
+    "components": 1,
+    "volume_mm3": 5095.959225023543,
+    "extents_mm": [
+      45.4,
+      41.4,
+      25.31749084473
+    ]
+  },
+  "cap_print": {
+    "triangles": 14784,
+    "watertight": true,
+    "winding_consistent": true,
+    "components": 1,
+    "volume_mm3": 5095.9628229193095,
+    "extents_mm": [
+      45.4,
+      41.4,
+      25.317499351206
+    ]
+  },
+  "plate": {
+    "triangles": 35906,
+    "watertight": true,
+    "winding_consistent": true,
+    "components": 2,
+    "volume_mm3": 9296.938584018266,
+    "extents_mm": [
+      100.85,
+      48.335,
+      36.519199351206
+    ]
+  },
+  "reference": {
+    "triangles": 14592,
+    "watertight": true,
+    "winding_consistent": true,
+    "components": 1,
+    "volume_mm3": 6525.161690972433,
+    "extents_mm": [
+      31.9,
+      31.9,
+      8.200000000000001
+    ]
+  },
+  "dimensions_mm": {
+    "tag_thickness": 8.2,
+    "ring_rear": 10.217527466115735,
+    "ring_height": 11.300000000000002,
+    "body_height": 21.517527466115737,
+    "tag_back": 12.217527466115735,
+    "tag_front": 20.417527466115736,
+    "front_recess": 1.1000000000000032,
+    "rear_support_thickness": 2.0,
+    "rear_hole_diameter": 22.0,
+    "residual_floor_under_channel": 1.4,
+    "underside_to_curved_collar": 1.200000000000001,
+    "cap_face_gap": 2.5
+  },
+  "rear_support": {
+    "nominal_rounding_overlap_mm3": 0.008094810234979002,
+    "estimated_bearing_area_for_assumed_flat_face_mm2": 276.3513148101636,
+    "continuous_floor_probe_coverage": 0.9999999999999999,
+    "downward_reference_overlap_mm3": {
+      "0.1": 30.003471088452873,
+      "0.2": 62.309539944052304,
+      "0.5": 166.45561326440742,
+      "2.4": 799.6963489673063
+    }
+  },
+  "assembly_collisions_mm3": {
+    "body_collar": 0.0,
+    "cap_body": 0.0,
+    "cap_tag": 0.0,
+    "cap_collar": 0.0,
+    "cap_button_envelope": 0.0
+  },
+  "cap_insertion_samples": 69,
+  "plate_symmetric_difference_mm3": 0.02010100018028562,
+  "limitations": [
+    "Reference rounding is assumed; actual tag profile is not measured.",
+    "Rigid contact tests establish a geometric stop, not resistance to TPU deformation.",
+    "No physical test of V2, force, fatigue, sound, button operation or rain resistance."
+  ]
+}

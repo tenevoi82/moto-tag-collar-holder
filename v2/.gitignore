@@ -1,0 +1,6 @@
+validation/*.log
+validation/*.csg
+validation/bambu/**/*.log
+validation/bambu/**/*.gcode
+validation/bambu/**/*.3mf
+validation/bambu/**/run_report.json

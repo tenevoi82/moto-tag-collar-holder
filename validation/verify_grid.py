@@ -33,12 +33,12 @@ body=trimesh.load_mesh(ROOT/'validation/holder_installed.stl',process=True)
 tag=trimesh.load_mesh(ROOT/'validation/tag_reference.stl',process=True)
 bm,tm=manifold(body),manifold(tag)
 tag_front=float(tag.bounds[1,2])
-grid_bottom=float(installed.bounds[1,2])-cap('grid_thickness')
-collar=mf.Manifold.cube([100,base('collar_width'),base('collar_thickness')]).translate(
-    [-50,-base('collar_width')/2,base('loop_wall')+base('collar_thickness_clearance')/2])
+grid_bottom=float(installed.bounds[1,2])-cap('tolshchina_setki')
+collar=mf.Manifold.cube([100,base('shirina_osheynika'),base('tolshchina_osheynika')]).translate(
+    [-50,-base('shirina_osheynika')/2,base('tolshchina_stenki_ushka')+base('zazor_remnya_po_tolshchine')/2])
 button=mf.Manifold.cylinder(2.0,7.25,7.25,96).translate([0,0,tag_front])
 old_report=json.loads((ROOT/'validation/geometry_report.json').read_text(encoding='utf-8'))
-air_z=base('loop_wall')+base('collar_thickness')+base('collar_thickness_clearance')+old_report['nominal_dimensions_mm']['analytic_collar_crown_allowance']+.1
+air_z=base('tolshchina_stenki_ushka')+base('tolshchina_osheynika')+base('zazor_remnya_po_tolshchine')+old_report['nominal_dimensions_mm']['analytic_collar_crown_allowance']+.1
 air=mf.Manifold.cube([4,24,1]).translate([-2,0,air_z])
 collisions=dict(cap_with_body_mm3=float((im^bm).volume()),cap_with_tag_mm3=float((im^tm).volume()),
                 cap_with_collar_mm3=float((im^collar).volume()),
@@ -51,20 +51,20 @@ for dz in np.arange(0,31,1.0):
     assert abs(volume)<1e-4,(dz,volume)
     insertion.append(dict(offset_z_mm=float(dz),overlap_mm3=volume))
 holes=[]
-pitch=cap('grid_pitch')
-inner_r=base('tag_diameter')/2+base('tag_radial_clearance')+base('ring_wall_thickness')+cap('cap_radial_clearance')
+pitch=cap('shag_setki')
+inner_r=base('diametr_metki')/2+base('bokovoy_zazor_metki')+base('tolshchina_stenki_koltsa')+cap('bokovoy_zazor_nakladki')
 for ix in range(-2,3):
     for iy in range(-2,3):
         x,y=ix*pitch,iy*pitch
         if math.hypot(x,y)+.5>=inner_r:continue
-        probe=mf.Manifold.cylinder(cap('grid_thickness')+2,.4,.4,32).translate([x,y,grid_bottom-1])
+        probe=mf.Manifold.cylinder(cap('tolshchina_setki')+2,.4,.4,32).translate([x,y,grid_bottom-1])
         volume=float((im^probe).volume())
         assert abs(volume)<1e-5,(x,y,volume)
         holes.append([x,y])
-bar_probe=mf.Manifold.cylinder(cap('grid_thickness'),.35,.35,32).translate([pitch/2,0,grid_bottom])
+bar_probe=mf.Manifold.cylinder(cap('tolshchina_setki'),.35,.35,32).translate([pitch/2,0,grid_bottom])
 assert (im^bar_probe).volume()>.5
-gap=cap('grid_pitch')-cap('grid_bar_width')
-assert math.sqrt(2)*gap<base('tag_thickness')
+gap=cap('shag_setki')-cap('shirina_peremychki_setki')
+assert math.sqrt(2)*gap<base('tolshchina_metki')
 report=dict(cap_print_mesh=printed_info,cap_installed_mesh=installed_info,complete_plate_mesh=plate_info,
             collisions=collisions,nominal_face_gap_mm=grid_bottom-tag_front,
             cell_width_mm=gap,cell_max_diagonal_mm=math.sqrt(2)*gap,

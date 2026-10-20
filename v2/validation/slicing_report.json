@@ -1,0 +1,283 @@
+[
+  {
+    "model": "moto_tag_collar_holder_v2",
+    "process_exit_code": 0,
+    "project": "C:\\Users\\Dmitrii\\Documents\\Метка для Кипиша\\v2\\moto_tag_collar_holder_v2_TPU95A_A1mini.3mf",
+    "project_exists": true,
+    "slicer_result": {
+      "error_string": "Success.",
+      "export_time": 2051,
+      "layer_height": 0.20000000298023224,
+      "plate_index": 0,
+      "prepare_time": 597,
+      "return_code": 0,
+      "sliced_plates": [
+        {
+          "feature_type_times": {
+            "Custom": 459.2043762207031,
+            "Flush": 28.0,
+            "Gap infill": 319.2581481933594,
+            "Inner wall": 1372.7333984375,
+            "Internal solid infill": 5.191341400146484,
+            "Outer wall": 1036.328369140625,
+            "Overhang wall": 12.560054779052734,
+            "Support": 1352.9444580078125,
+            "Support interface": 26.25430679321289,
+            "Support transition": 30.452816009521484,
+            "Top surface": 5.074316501617432,
+            "Travel": 1549.416015625,
+            "Undefined": 1531.326904296875
+          },
+          "filament_change_times": 0,
+          "filaments": [
+            {
+              "filament_id": "GFU99",
+              "id": 1,
+              "main_used_g": 7.150279521942139,
+              "total_used_g": 7.150279998779297
+            }
+          ],
+          "generate_support_material_time": 932,
+          "id": 1,
+          "infill_time": 188,
+          "layer_filament_change": 0,
+          "main_predication": 5682.3173828125,
+          "make_perimeters_time": 713,
+          "obj_cached_cnt": 0,
+          "objects": [
+            {
+              "bbox": {
+                "depth": 36.519229888916016,
+                "height": 36.519187927246094,
+                "width": 36.30000305175781,
+                "x": 71.8499984741211,
+                "y": 71.7403793334961,
+                "z": 0.0
+              },
+              "id": 5,
+              "name": "moto_tag_collar_holder_v2.stl",
+              "triangle_count": 21138
+            }
+          ],
+          "sliced_time": 4503,
+          "sliced_time_with_cache": 2242,
+          "total_predication": 6179.4326171875,
+          "triangle_count": 21138,
+          "warning_message": ""
+        }
+      ],
+      "sparse_infill_density": 40.0,
+      "wall_loops": 5
+    },
+    "archive_validation": {
+      "archive_crc_valid": true,
+      "gcode_md5_valid": true,
+      "verified_embedded_settings": {
+        "printer_model": "Bambu Lab A1 mini",
+        "wall_loops": "5",
+        "layer_height": "0.2",
+        "sparse_infill_density": "40%",
+        "enable_support": "1",
+        "filament_type": [
+          "TPU"
+        ],
+        "nozzle_temperature": [
+          "230"
+        ],
+        "filament_max_volumetric_speed": [
+          "2"
+        ]
+      },
+      "gcode_bytes": 3281771,
+      "project_sha256": "8f4f7caaf402840e9fd176611fcfabdb636d306258bf056e7f494d7a56cb5a72"
+    }
+  },
+  {
+    "model": "moto_tag_collar_holder_grid_cap_v2",
+    "process_exit_code": 0,
+    "project": "C:\\Users\\Dmitrii\\Documents\\Метка для Кипиша\\v2\\moto_tag_collar_holder_grid_cap_v2_TPU95A_A1mini.3mf",
+    "project_exists": true,
+    "slicer_result": {
+      "error_string": "Success.",
+      "export_time": 1411,
+      "layer_height": 0.20000000298023224,
+      "plate_index": 0,
+      "prepare_time": 198,
+      "return_code": 0,
+      "sliced_plates": [
+        {
+          "feature_type_times": {
+            "Brim": 128.97019958496094,
+            "Custom": 460.22900390625,
+            "Flush": 28.0,
+            "Gap infill": 439.2932434082031,
+            "Inner wall": 1553.3975830078125,
+            "Internal solid infill": 17.58007049560547,
+            "Outer wall": 1035.4342041015625,
+            "Overhang wall": 38.4008903503418,
+            "Support": 845.2847290039062,
+            "Support interface": 53.306617736816406,
+            "Support transition": 57.176841735839844,
+            "Top surface": 160.5975341796875,
+            "Travel": 1191.414794921875,
+            "Undefined": 1172.343505859375
+          },
+          "filament_change_times": 0,
+          "filaments": [
+            {
+              "filament_id": "GFU99",
+              "id": 1,
+              "main_used_g": 8.271688461303711,
+              "total_used_g": 8.271689414978027
+            }
+          ],
+          "generate_support_material_time": 1319,
+          "id": 1,
+          "infill_time": 295,
+          "layer_filament_change": 0,
+          "main_predication": 5493.09521484375,
+          "make_perimeters_time": 968,
+          "obj_cached_cnt": 0,
+          "objects": [
+            {
+              "bbox": {
+                "depth": 41.39999771118164,
+                "height": 25.31749725341797,
+                "width": 45.39999771118164,
+                "x": 67.30000305175781,
+                "y": 69.30000305175781,
+                "z": 0.0
+              },
+              "id": 5,
+              "name": "moto_tag_collar_holder_grid_cap_v2.stl",
+              "triangle_count": 14784
+            }
+          ],
+          "sliced_time": 5498,
+          "sliced_time_with_cache": 2405,
+          "total_predication": 5990.2529296875,
+          "triangle_count": 14784,
+          "warning_message": ""
+        }
+      ],
+      "sparse_infill_density": 40.0,
+      "wall_loops": 5
+    },
+    "archive_validation": {
+      "archive_crc_valid": true,
+      "gcode_md5_valid": true,
+      "verified_embedded_settings": {
+        "printer_model": "Bambu Lab A1 mini",
+        "wall_loops": "5",
+        "layer_height": "0.2",
+        "sparse_infill_density": "40%",
+        "enable_support": "1",
+        "filament_type": [
+          "TPU"
+        ],
+        "nozzle_temperature": [
+          "230"
+        ],
+        "filament_max_volumetric_speed": [
+          "2"
+        ]
+      },
+      "gcode_bytes": 2795877,
+      "project_sha256": "9ef879352e5a26b0dc6684f5e2837626d14562fa8e035505354debbb8b81bd98"
+    }
+  },
+  {
+    "model": "moto_tag_collar_holder_grid_v2",
+    "process_exit_code": 0,
+    "project": "C:\\Users\\Dmitrii\\Documents\\Метка для Кипиша\\v2\\moto_tag_collar_holder_grid_v2_TPU95A_A1mini.3mf",
+    "project_exists": true,
+    "slicer_result": {
+      "error_string": "Success.",
+      "export_time": 1521,
+      "layer_height": 0.20000000298023224,
+      "plate_index": 0,
+      "prepare_time": 504,
+      "return_code": 0,
+      "sliced_plates": [
+        {
+          "feature_type_times": {
+            "Brim": 122.7860107421875,
+            "Custom": 459.1268005371094,
+            "Flush": 28.0,
+            "Gap infill": 766.155517578125,
+            "Inner wall": 2919.87158203125,
+            "Internal solid infill": 25.305091857910156,
+            "Outer wall": 2063.2734375,
+            "Overhang wall": 52.01786804199219,
+            "Support": 2274.130615234375,
+            "Support interface": 82.8139877319336,
+            "Support transition": 87.467041015625,
+            "Top surface": 165.94952392578125,
+            "Travel": 2602.909423828125,
+            "Undefined": 2584.888427734375
+          },
+          "filament_change_times": 0,
+          "filaments": [
+            {
+              "filament_id": "GFU99",
+              "id": 1,
+              "main_used_g": 15.30699634552002,
+              "total_used_g": 15.30699634552002
+            }
+          ],
+          "generate_support_material_time": 3015,
+          "id": 1,
+          "infill_time": 480,
+          "layer_filament_change": 0,
+          "main_predication": 11134.7783203125,
+          "make_perimeters_time": 2178,
+          "obj_cached_cnt": 0,
+          "objects": [
+            {
+              "bbox": {
+                "depth": 48.334999084472656,
+                "height": 36.51919937133789,
+                "width": 100.85000610351562,
+                "x": 39.575008392333984,
+                "y": 65.83248901367188,
+                "z": 0.0
+              },
+              "id": 5,
+              "name": "moto_tag_collar_holder_grid_v2.stl",
+              "triangle_count": 35906
+            }
+          ],
+          "sliced_time": 9171,
+          "sliced_time_with_cache": 2669,
+          "total_predication": 11631.8837890625,
+          "triangle_count": 35906,
+          "warning_message": ""
+        }
+      ],
+      "sparse_infill_density": 40.0,
+      "wall_loops": 5
+    },
+    "archive_validation": {
+      "archive_crc_valid": true,
+      "gcode_md5_valid": true,
+      "verified_embedded_settings": {
+        "printer_model": "Bambu Lab A1 mini",
+        "wall_loops": "5",
+        "layer_height": "0.2",
+        "sparse_infill_density": "40%",
+        "enable_support": "1",
+        "filament_type": [
+          "TPU"
+        ],
+        "nozzle_temperature": [
+          "230"
+        ],
+        "filament_max_volumetric_speed": [
+          "2"
+        ]
+      },
+      "gcode_bytes": 5859513,
+      "project_sha256": "e9688dfe67fb0b3bfcba2bed2e31d6463481970131bd24f7fb7b221220bd4c4a"
+    }
+  }
+]

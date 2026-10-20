@@ -1,0 +1,41 @@
+{
+  "localization_checks": [
+    {
+      "case": "main",
+      "compiled": true,
+      "csg_identical": true
+    },
+    {
+      "case": "test",
+      "compiled": true,
+      "csg_identical": true
+    },
+    {
+      "case": "reference",
+      "compiled": true,
+      "csg_identical": true
+    },
+    {
+      "case": "grid_plate",
+      "compiled": true,
+      "csg_identical": true
+    },
+    {
+      "case": "grid_cap",
+      "compiled": true,
+      "csg_identical": true
+    },
+    {
+      "case": "grid_cap_installed",
+      "compiled": true,
+      "csg_identical": true
+    },
+    {
+      "case": "grid_assembly",
+      "compiled": true,
+      "csg_identical": true
+    }
+  ],
+  "renamed_parameter_overrides": "passed",
+  "python_syntax": "passed"
+}

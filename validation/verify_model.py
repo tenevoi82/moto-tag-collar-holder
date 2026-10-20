@@ -16,20 +16,20 @@ source = (ROOT / 'moto_tag_collar_holder.scad').read_text(encoding='utf-8')
 def param(name):
     return float(re.search(r'^' + name + r'\s*=\s*([\d.]+)\s*;', source, re.M)[1])
 
-d, t = param('tag_diameter'), param('tag_thickness')
-sw = param('collar_width') + param('collar_width_clearance')
-st = param('collar_thickness') + param('collar_thickness_clearance')
-wall, er = param('loop_wall'), param('edge_radius')
-loop_x = d/2 + param('tag_radial_clearance') + param('ring_wall_thickness') - param('loop_inset')
-span = loop_x + param('loop_length')/2
-bend = param('collar_bend_radius')
+d, t = param('diametr_metki'), param('tolshchina_metki')
+sw = param('shirina_osheynika') + param('zazor_remnya_po_shirine')
+st = param('tolshchina_osheynika') + param('zazor_remnya_po_tolshchine')
+wall, er = param('tolshchina_stenki_ushka'), param('skruglenie_naruzhnyh_krayov')
+loop_x = d/2 + param('bokovoy_zazor_metki') + param('tolshchina_stenki_koltsa') - param('otstup_ushka_ot_kraya')
+span = loop_x + param('dlina_ushka')/2
+bend = param('radius_izgiba_osheynika')
 sag = bend-math.sqrt(bend*bend-span*span)
-seat = param('retention_lip_height') + param('tag_axial_clearance')/2
-base = max(wall+st+param('vent_gap')+sag-seat, st+2*wall+0.5-seat)
-tagback = base + param('retention_lip_height') + param('tag_axial_clearance')/2
+seat = param('osevaya_dobavka_bortika') + param('osevoy_pripusk_metki')/2
+base = max(wall+st+param('zazor_nad_izognutym_remnem')+sag-seat, st+2*wall+0.5-seat)
+tagback = base + param('osevaya_dobavka_bortika') + param('osevoy_pripusk_metki')/2
 lift = ((sw+2*wall)/2-er*(2-math.sqrt(2)))/math.sqrt(2)
-bore = d/2 + param('tag_radial_clearance')
-throat = bore - param('tag_edge_radius_assumed') - param('retention_lip')
+bore = d/2 + param('bokovoy_zazor_metki')
+throat = bore - param('predpolagaemoe_skruglenie_metki') - param('radialnoe_suzhenie_bortika')
 
 def as_manifold(mesh):
     return mf.Manifold(mf.Mesh64(np.asarray(mesh.vertices, dtype=np.float64),
@@ -64,9 +64,9 @@ installed.export(ROOT / 'validation/holder_installed.stl')
 tag = trimesh.load_mesh(ROOT / 'validation/tag_reference.stl', process=True)
 tm = as_manifold(tag)
 
-collar = mf.Manifold.cube([70,param('collar_width'),param('collar_thickness')])
-collar = collar.translate([-35,-param('collar_width')/2,
-                          wall+param('collar_thickness_clearance')/2])
+collar = mf.Manifold.cube([70,param('shirina_osheynika'),param('tolshchina_osheynika')])
+collar = collar.translate([-35,-param('shirina_osheynika')/2,
+                          wall+param('zazor_remnya_po_tolshchine')/2])
 button = mf.Manifold.cylinder(4,14.5,14.5,96).translate([0,0,tagback+t])
 # Air exits through the +Y sector; x width=4, z gap excludes both surfaces.
 air = mf.Manifold.cube([4,24,1.0]).translate([-2,0,wall+st+sag+0.1])
@@ -90,13 +90,13 @@ report = {
     'nominal_dimensions_mm': {
         'bore_diameter':2*bore,'minimum_lip_opening':2*throat,
         'collar_slot':[sw,st],
-        'slot_between_rib_peaks':st-2*param('grip_rib_height'),
+        'slot_between_rib_peaks':st-2*param('vysota_reber_prizhima'),
         'minimum_tag_back_to_collar_top':tagback-(wall+st),
         'design_collar_bend_radius':bend,
         'analytic_collar_crown_allowance':sag,
         'analytic_air_gap_after_bend':tagback-(wall+st+sag),
-        'height_above_slot_top':base+t+param('tag_axial_clearance')+
-                                2*param('retention_lip_height')-(wall+st),
+        'height_above_slot_top':base+t+param('osevoy_pripusk_metki')+
+                                2*param('osevaya_dobavka_bortika')-(wall+st),
     },
     'clearance_checks':clashes,
     'geometric_layer_sections': {
@@ -139,9 +139,9 @@ for i,(az,el,title) in enumerate([
     add_mesh(ax,mesh,[0.12,0.62,0.58])
     if i==2:
         add_mesh(ax,tag,[0.55,0.68,0.94],0.45)
-        strap=trimesh.creation.box([60,param('collar_width'),param('collar_thickness')])
-        strap.apply_translation([0,0,wall+param('collar_thickness_clearance')/2+
-                                 param('collar_thickness')/2])
+        strap=trimesh.creation.box([60,param('shirina_osheynika'),param('tolshchina_osheynika')])
+        strap.apply_translation([0,0,wall+param('zazor_remnya_po_tolshchine')/2+
+                                 param('tolshchina_osheynika')/2])
         add_mesh(ax,strap,[0.58,0.34,0.16],0.35)
     bounds=mesh.bounds; center=bounds.mean(axis=0); extent=mesh.extents
     if i==2: extent=np.maximum(extent,[62,38,20])
@@ -166,7 +166,7 @@ for ax,x,title in zip(axes,[0,loop_x],['Ring section: X = 0',f'Loop section: X =
     for contour in contours:
         c=np.asarray(contour); c=np.vstack([c,c[0]])
         ax.plot(c[:,0],c[:,1],color='#087f77',linewidth=1.5)
-    ax.plot([-param('collar_width')/2,param('collar_width')/2],
+    ax.plot([-param('shirina_osheynika')/2,param('shirina_osheynika')/2],
             [wall+st,wall+st],'--',color='#a36b35',label='Maximum collar top')
     ax.set_aspect('equal');ax.set_title(title);ax.set_xlabel('Y mm');ax.set_ylabel('Z mm')
     ax.grid(alpha=.2);ax.legend(fontsize=8)

@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-20",
+  "source_parameters": {
+    "design_tag_thickness_mm": 8.0,
+    "measured_tag_thickness_mm": 8.2,
+    "radial_clearance_per_side_mm": 0.2,
+    "axial_height_allowance_mm": 0.4
+  },
+  "levels_mm": {
+    "holder_rear": 0.0,
+    "ring_rear": 9.117527466115735,
+    "ring_front": 19.317527466115735,
+    "ring_height": 10.2,
+    "nominal_tag_back": 10.217527466115735,
+    "nominal_tag_front": 18.217527466115733,
+    "nominal_front_recess": 1.0999999999999996,
+    "conditional_measured_front": 15.817527466115735,
+    "conditional_measured_back": 7.617527466115735,
+    "conditional_extension_behind_ring": 1.5
+  },
+  "rigid_reference": {
+    "assumed_edge_radius_mm": 0.8,
+    "down_travel_mm": 0.11856555938720703,
+    "up_travel_mm": 0.11859619617462158,
+    "total_travel_mm": 0.2371617555618286,
+    "total_travel_with_assumed_8_2mm_profile_mm": 0.03716176748275757,
+    "overlap_at_hypothesized_measured_pose_mm3": 183.50216134650864
+  },
+  "lip": {
+    "minimum_opening_diameter_mm": 29.499999999999996,
+    "overlap_with_assumed_flat_face_mm": 0.39999999999999997,
+    "rear_sector_removed_degrees": 50.0
+  },
+  "validation_parameter_reads": 53,
+  "print_projects": [
+    {
+      "stl": "fit_test.stl",
+      "project": "fit_test_TPU95A_A1mini.3mf",
+      "triangles": 18480,
+      "scale_singular_values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "max_vertex_distance_after_translation_mm": 1.895679297570341e-06,
+      "relative_volume_difference": 4.409163811835981e-08,
+      "verdict": "Meshes agree within 0.001 mm; transforms have no scaling."
+    },
+    {
+      "stl": "moto_tag_collar_holder.stl",
+      "project": "moto_tag_collar_holder_TPU95A_A1mini.3mf",
+      "triangles": 19808,
+      "scale_singular_values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "max_vertex_distance_after_translation_mm": 2.043885476463352e-06,
+      "relative_volume_difference": 2.0765855701654345e-08,
+      "verdict": "Meshes agree within 0.001 mm; transforms have no scaling."
+    },
+    {
+      "stl": "moto_tag_collar_holder_grid_cap.stl",
+      "project": "moto_tag_collar_holder_grid_cap_TPU95A_A1mini.3mf",
+      "triangles": 14784,
+      "scale_singular_values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "max_vertex_distance_after_translation_mm": 1.3634154606163498e-06,
+      "relative_volume_difference": 6.8080607817933014e-09,
+      "verdict": "Meshes agree within 0.001 mm; transforms have no scaling."
+    },
+    {
+      "stl": "moto_tag_collar_holder_grid.stl",
+      "project": "moto_tag_collar_holder_grid_TPU95A_A1mini.3mf",
+      "triangles": 34554,
+      "scale_singular_values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0000000004752874,
+          1.0000000004752871,
+          1.0
+        ]
+      ],
+      "max_vertex_distance_after_translation_mm": 4.60460766813762e-06,
+      "relative_volume_difference": 8.761558811798409e-09,
+      "verdict": "Meshes agree within 0.001 mm; transforms have no scaling."
+    }
+  ],
+  "limitations": [
+    "Measured blue face may differ from the overall thickness measurement datum.",
+    "Rigid reference is an assumed rounded disc, not the measured tag surface.",
+    "A collision at measured depth means the rigid reference cannot reproduce that pose without changes or deformation.",
+    "No simulation of TPU elasticity, printed lip damage, support residue, forces or fatigue.",
+    "3MF checks concern embedded meshes and transforms, not a revalidation of G-code."
+  ]
+}

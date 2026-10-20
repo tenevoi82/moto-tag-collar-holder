@@ -1,0 +1,65 @@
+{
+    "error_string": "Success.",
+    "export_time": 2051,
+    "layer_height": 0.20000000298023224,
+    "plate_index": 0,
+    "prepare_time": 597,
+    "return_code": 0,
+    "sliced_plates": [
+        {
+            "feature_type_times": {
+                "Custom": 459.2043762207031,
+                "Flush": 28.0,
+                "Gap infill": 319.2581481933594,
+                "Inner wall": 1372.7333984375,
+                "Internal solid infill": 5.191341400146484,
+                "Outer wall": 1036.328369140625,
+                "Overhang wall": 12.560054779052734,
+                "Support": 1352.9444580078125,
+                "Support interface": 26.25430679321289,
+                "Support transition": 30.452816009521484,
+                "Top surface": 5.074316501617432,
+                "Travel": 1549.416015625,
+                "Undefined": 1531.326904296875
+            },
+            "filament_change_times": 0,
+            "filaments": [
+                {
+                    "filament_id": "GFU99",
+                    "id": 1,
+                    "main_used_g": 7.150279521942139,
+                    "total_used_g": 7.150279998779297
+                }
+            ],
+            "generate_support_material_time": 932,
+            "id": 1,
+            "infill_time": 188,
+            "layer_filament_change": 0,
+            "main_predication": 5682.3173828125,
+            "make_perimeters_time": 713,
+            "obj_cached_cnt": 0,
+            "objects": [
+                {
+                    "bbox": {
+                        "depth": 36.519229888916016,
+                        "height": 36.519187927246094,
+                        "width": 36.30000305175781,
+                        "x": 71.8499984741211,
+                        "y": 71.7403793334961,
+                        "z": 0.0
+                    },
+                    "id": 5,
+                    "name": "moto_tag_collar_holder_v2.stl",
+                    "triangle_count": 21138
+                }
+            ],
+            "sliced_time": 4503,
+            "sliced_time_with_cache": 2242,
+            "total_predication": 6179.4326171875,
+            "triangle_count": 21138,
+            "warning_message": ""
+        }
+    ],
+    "sparse_infill_density": 40.0,
+    "wall_loops": 5
+}

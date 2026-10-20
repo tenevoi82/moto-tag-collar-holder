@@ -1,95 +1,127 @@
-/* Moto Tag gen.1 / leather collar, TPU 95A. Units: mm.
-   Default export is tilted 45 degrees for printing WITH local supports.
-   Set print_orientation=false for assembled coordinates (collar travels X).
-   Rounded tag edge is an assumption, not a measured Motorola CAD profile.
-   See README.md and fit_test.scad before use. OpenSCAD 2021.01 compatible. */
+/* Держатель Moto Tag первого поколения для кожаного ошейника, TPU 95A.
+   Все размеры в миллиметрах. Наклон 45° предназначен для печати С поддержками.
+   Для осмотра сборки отключите polozhenie_dlya_pechati.
+   Это геометрия опубликованной версии: расчётная толщина метки 8,0 мм.
+   Пользователь измерил 8,2 мм и утопление 3,5 мм; аудит — validation/MODEL_AUDIT_RU.md.
+   Скруглённый диск служит условной проверкой, точный профиль Moto Tag не снят.
+   Названия параметров транслитом: OpenSCAD 2021.01 не принимает кириллицу
+   в идентификаторах. Описания и группы настроек — по-русски. */
 
-/* [Measured dimensions] */
-tag_diameter = 31.9;
-tag_thickness = 8.0;
-collar_width = 21.5;
-collar_thickness = 3.85;
+/* [Размеры метки и ошейника] */
+// Диаметр метки, мм
+diametr_metki = 31.9;
+// Расчётная толщина метки в опубликованной модели, мм
+tolshchina_metki = 8.0;
+// Ширина ремня ошейника, мм
+shirina_osheynika = 21.5;
+// Толщина ремня ошейника, мм
+tolshchina_osheynika = 3.85;
 
-/* [Fit adjustments] */
-collar_width_clearance = 0.8;      // TOTAL width clearance, not per side
-collar_thickness_clearance = 0.6;  // TOTAL thickness clearance
-tag_radial_clearance = 0.2;       // PER SIDE at maximum tag diameter
-tag_axial_clearance = 0.4;        // TOTAL between nominal front/rear seats
-tag_edge_radius_assumed = 0.8;    // measure/test; rounded disc approximation
-retention_lip = 0.6;             // inward overlap from assumed rounded FACE
-retention_lip_height = 0.9;       // each seat's extra axial allowance
+/* [Посадка и зазоры] */
+// Общий зазор прохода ремня по ширине, мм
+zazor_remnya_po_shirine = 0.8;
+// Общий зазор прохода ремня по толщине до рёбер, мм
+zazor_remnya_po_tolshchine = 0.6;
+// Зазор с каждой стороны метки на её максимальном диаметре, мм
+bokovoy_zazor_metki = 0.2;
+// Осевой припуск в формуле высоты; это НЕ измеренный свободный ход, мм
+osevoy_pripusk_metki = 0.4;
+// Предполагаемое скругление края метки; точный профиль не измерен, мм
+predpolagaemoe_skruglenie_metki = 0.8;
+// Дополнительное сужение отверстия после учёта скругления; не фактический нахлёст, мм
+radialnoe_suzhenie_bortika = 0.6;
+// Добавка с каждой стороны к высоте кольца; не отдельная толщина полки, мм
+osevaya_dobavka_bortika = 0.9;
 
-/* [Structure] */
-ring_wall_thickness = 2.0;
-edge_radius = 1.0;               // external ring/loop profile corner radius
-loop_wall = 2.0;
-loop_length = 3.2;               // each closed belt loop's length along X
-slot_corner_radius = 0.6;
-loop_entry_bevel = 0.35;
-grip_rib_height = 0.25;           // each side; minimum free gap = slot_t-2*this
-vent_gap = 1.2;                  // minimum rear air gap AFTER design belt bend
-collar_bend_radius = 40;         // minimum design OUTSIDE bend radius of collar
-loop_inset = 5.65;               // loop centre inboard of outer ring radius
-arm_width = 4.0;
-arm_height = 2.4;
-speaker_angle = 90;              // +Y; rotate tag buzzer into this sector
-speaker_angle_width = 50;
-speaker_window_height = 2.4;
+/* [Кольцо, ушки и стойки] */
+// Толщина стенки кольца на уровне максимального диаметра метки, мм
+tolshchina_stenki_koltsa = 2.0;
+// Скругление наружных краёв кольца и ушек, мм
+skruglenie_naruzhnyh_krayov = 1.0;
+// Толщина стенки ушка, мм
+tolshchina_stenki_ushka = 2.0;
+// Длина ушка вдоль ремня, мм
+dlina_ushka = 3.2;
+// Скругление углов прохода ремня, мм
+skruglenie_prohoda_remnya = 0.6;
+// Фаска на входах ушка, мм
+faska_vhoda_v_ushko = 0.35;
+// Высота мягкого ребра с каждой стороны прохода ремня, мм
+vysota_reber_prizhima = 0.25;
+// Расчётный зазор под меткой после изгиба ремня, мм
+zazor_nad_izognutym_remnem = 1.2;
+// Расчётный радиус наружной поверхности согнутого ошейника, мм
+radius_izgiba_osheynika = 40;
+// Отступ центра ушка внутрь от наружного радиуса кольца, мм
+otstup_ushka_ot_kraya = 5.65;
+// Ширина соединительной стойки, мм
+shirina_stoyki = 4.0;
+// Высота захода стойки в кольцо, мм
+vysota_zahoda_stoyki = 2.4;
+// Направление звукового выреза: 90 или 270 градусов
+ugol_okna_dinamika = 90;
+// Ширина сектора звукового выреза, градусы
+sektor_okna_dinamika = 50;
+// Высота звукового выреза от заднего края кольца, мм
+vysota_okna_dinamika = 2.4;
 
-/* [Output] */
-print_orientation = true;
-show_reference = false;         // translucent references: preview only
-quality = 192;                  // circumference facets
+/* [Вид модели] */
+// Включить наклон корпуса на 45 градусов для печати с поддержками
+polozhenie_dlya_pechati = true;
+// Показать условную метку и прямой ремень только в предварительном просмотре F5
+pokazat_metku_i_remen = false;
+// Количество граней окружности
+kachestvo_okruzhnosti = 192;
 
 /* [Hidden] */
-$fn = quality;
+$fn = kachestvo_okruzhnosti;
 eps = 0.02;
-bore_r = tag_diameter/2 + tag_radial_clearance;
-outer_r = bore_r + ring_wall_thickness;
-throat_r = bore_r - tag_edge_radius_assumed - retention_lip;
+bore_r = diametr_metki/2 + bokovoy_zazor_metki;
+outer_r = bore_r + tolshchina_stenki_koltsa;
+throat_r = bore_r - predpolagaemoe_skruglenie_metki - radialnoe_suzhenie_bortika;
 mouth_bevel = 0.25;
-transition_height = mouth_bevel + bore_r - throat_r; // 45 degree ramp
-ring_height = tag_thickness + tag_axial_clearance + 2*retention_lip_height;
-slot_w = collar_width + collar_width_clearance;
-slot_t = collar_thickness + collar_thickness_clearance;
-loop_outer_w = slot_w + 2*loop_wall;
-loop_outer_h = slot_t + 2*loop_wall;
-loop_x = outer_r - loop_inset;
-curve_half_span = loop_x + loop_length/2;
-curvature_sag = collar_bend_radius -
-    sqrt(pow(collar_bend_radius,2)-pow(curve_half_span,2));
-// Keep rear face above a curved belt; also keep it >=0.5 above loop roofs.
-ring_base = max(loop_wall+slot_t+vent_gap+curvature_sag-
-                retention_lip_height-tag_axial_clearance/2,
-                loop_outer_h+0.5-retention_lip_height-tag_axial_clearance/2);
-arm_y = slot_w/2 + loop_wall/2;
+transition_height = mouth_bevel + bore_r - throat_r; // переход под 45 градусов
+ring_height = tolshchina_metki + osevoy_pripusk_metki + 2*osevaya_dobavka_bortika;
+slot_w = shirina_osheynika + zazor_remnya_po_shirine;
+slot_t = tolshchina_osheynika + zazor_remnya_po_tolshchine;
+loop_outer_w = slot_w + 2*tolshchina_stenki_ushka;
+loop_outer_h = slot_t + 2*tolshchina_stenki_ushka;
+loop_x = outer_r - otstup_ushka_ot_kraya;
+curve_half_span = loop_x + dlina_ushka/2;
+curvature_sag = radius_izgiba_osheynika -
+    sqrt(pow(radius_izgiba_osheynika,2)-pow(curve_half_span,2));
+// Поднять условную заднюю поверхность над согнутым ремнём и крышами ушек.
+ring_base = max(tolshchina_stenki_ushka+slot_t+zazor_nad_izognutym_remnem+curvature_sag-
+                osevaya_dobavka_bortika-osevoy_pripusk_metki/2,
+                loop_outer_h+0.5-osevaya_dobavka_bortika-osevoy_pripusk_metki/2);
+arm_y = slot_w/2 + tolshchina_stenki_ushka/2;
 arm_root_x = sqrt(pow(outer_r-0.8,2)-pow(arm_y,2));
-tag_back = ring_base + retention_lip_height + tag_axial_clearance/2;
-// Analytic lowest point of rounded loop profile after X rotation by 45 deg.
-print_lift = (loop_outer_w/2 - edge_radius*(2-sqrt(2)))/sqrt(2);
+tag_back = ring_base + osevaya_dobavka_bortika + osevoy_pripusk_metki/2;
+// Нижняя точка скруглённого ушка после поворота на 45° вокруг X.
+print_lift = (loop_outer_w/2 - skruglenie_naruzhnyh_krayov*(2-sqrt(2)))/sqrt(2);
 
-assert(tag_edge_radius_assumed >= 0 && tag_edge_radius_assumed < tag_thickness/2);
-assert(tag_radial_clearance >= 0 && retention_lip > tag_radial_clearance);
+assert(predpolagaemoe_skruglenie_metki >= 0 && predpolagaemoe_skruglenie_metki < tolshchina_metki/2);
+assert(bokovoy_zazor_metki >= 0 && radialnoe_suzhenie_bortika > bokovoy_zazor_metki);
 assert(throat_r > 0 && ring_height > 2*transition_height + 1);
-assert(ring_wall_thickness >= 1.6 && loop_wall >= 1.6 && arm_width >= 3.2);
-assert(loop_length > 2*loop_entry_bevel + 1);
-assert(grip_rib_height >= 0 && grip_rib_height < loop_wall/2);
-assert(edge_radius > 0 && edge_radius <= loop_wall/2);
-assert(slot_corner_radius < min(slot_w,slot_t)/2);
-assert(arm_y < outer_r-0.8, "Collar too wide for this compact two-loop design");
-assert(collar_bend_radius > curve_half_span+5);
-assert(loop_x-loop_length/2 > 5 && loop_x < outer_r);
-assert(vent_gap >= 1.0);
-assert(speaker_window_height < ring_height/2);
-assert(speaker_angle == 90 || speaker_angle == 270,
-       "Use lateral speaker sectors, clear of the loop connections");
+assert(tolshchina_stenki_koltsa >= 1.6 && tolshchina_stenki_ushka >= 1.6 && shirina_stoyki >= 3.2);
+assert(dlina_ushka > 2*faska_vhoda_v_ushko + 1);
+assert(vysota_reber_prizhima >= 0 && vysota_reber_prizhima < tolshchina_stenki_ushka/2);
+assert(skruglenie_naruzhnyh_krayov > 0 && skruglenie_naruzhnyh_krayov <= tolshchina_stenki_ushka/2);
+assert(skruglenie_prohoda_remnya < min(slot_w,slot_t)/2);
+assert(arm_y < outer_r-0.8, "Ремень слишком широк для выбранного расположения ушек");
+assert(radius_izgiba_osheynika > curve_half_span+5);
+assert(loop_x-dlina_ushka/2 > 5 && loop_x < outer_r);
+assert(zazor_nad_izognutym_remnem >= 1.0);
+assert(vysota_okna_dinamika < ring_height/2);
+assert(ugol_okna_dinamika == 90 || ugol_okna_dinamika == 270,
+       "Звуковой вырез должен быть сбоку, вне соединений со стойками");
 
 module rounded_rect_2d(w,h,r) {
     offset(r=r) square([w-2*r,h-2*r],center=true);
 }
 
 module ring_outer() {
-    rr = min(edge_radius,ring_wall_thickness/2);
+    rr = min(skruglenie_naruzhnyh_krayov,tolshchina_stenki_koltsa/2);
     rotate_extrude(convexity=10)
         polygon(concat([[0,0],[outer_r-rr,0]],
             [for(a=[-90:5:0]) [outer_r-rr+rr*cos(a),rr+rr*sin(a)]],
@@ -99,7 +131,7 @@ module ring_outer() {
             [[0,ring_height]]));
 }
 
-// Continuous front and rear lips; no thin cantilever snap fingers.
+// Передняя кромка замкнута; в задней затем вырезается звуковой сектор.
 module tag_void() {
     rotate_extrude(convexity=10) polygon([
         [0,-eps],[throat_r+mouth_bevel,-eps],
@@ -112,9 +144,9 @@ module tag_void() {
 }
 
 module speaker_cut() {
-    translate([0,0,-eps]) linear_extrude(speaker_window_height+eps)
-        polygon(concat([[0,0]], [for(a=[speaker_angle-speaker_angle_width/2:
-            1:speaker_angle+speaker_angle_width/2])
+    translate([0,0,-eps]) linear_extrude(vysota_okna_dinamika+eps)
+        polygon(concat([[0,0]], [for(a=[ugol_okna_dinamika-sektor_okna_dinamika/2:
+            1:ugol_okna_dinamika+sektor_okna_dinamika/2])
             [(outer_r+3)*cos(a),(outer_r+3)*sin(a)]]));
 }
 
@@ -126,68 +158,68 @@ module ring_only(acoustic_window=true) {
     }
 }
 
-// Local coordinates: profile XY maps to installed YZ, extrusion Z to X.
+// Профиль XY переходит в плоскость YZ сборки; выдавливание Z — вдоль X.
 module closed_loop_local() {
     $fn = 64;
-    b = loop_entry_bevel;
+    b = faska_vhoda_v_ushko;
     union() {
     difference() {
         hull() {
-            for(z=[b,loop_length-b-eps]) translate([0,0,z])
+            for(z=[b,dlina_ushka-b-eps]) translate([0,0,z])
                 linear_extrude(eps)
-                    rounded_rect_2d(loop_outer_w,loop_outer_h,edge_radius);
-            for(z=[0,loop_length-eps]) translate([0,0,z])
+                    rounded_rect_2d(loop_outer_w,loop_outer_h,skruglenie_naruzhnyh_krayov);
+            for(z=[0,dlina_ushka-eps]) translate([0,0,z])
                 linear_extrude(eps)
                     rounded_rect_2d(loop_outer_w-2*b,loop_outer_h-2*b,
-                                    edge_radius-b);
+                                    skruglenie_naruzhnyh_krayov-b);
         }
-        translate([0,0,-eps]) linear_extrude(loop_length+2*eps)
-            rounded_rect_2d(slot_w,slot_t,slot_corner_radius);
-        // Entry bevel on both mouths, leaving a full-size central gauge land.
+        translate([0,0,-eps]) linear_extrude(dlina_ushka+2*eps)
+            rounded_rect_2d(slot_w,slot_t,skruglenie_prohoda_remnya);
+        // Фаски обоих входов; в середине сохраняется полный профиль прохода.
         for(mirror_end=[false,true])
-            translate([0,0,mirror_end ? loop_length : 0])
+            translate([0,0,mirror_end ? dlina_ushka : 0])
                 scale([1,1,mirror_end ? -1 : 1]) hull() {
                     translate([0,0,-eps]) linear_extrude(eps)
-                        rounded_rect_2d(slot_w+2*b,slot_t+2*b,slot_corner_radius+b);
+                        rounded_rect_2d(slot_w+2*b,slot_t+2*b,skruglenie_prohoda_remnya+b);
                     translate([0,0,b]) linear_extrude(eps)
-                        rounded_rect_2d(slot_w,slot_t,slot_corner_radius);
+                        rounded_rect_2d(slot_w,slot_t,skruglenie_prohoda_remnya);
                 }
     }
-    // Broad round TPU ridges, not teeth. The coupon shares these ridges.
+    // Широкие скруглённые рёбра из TPU. Тестовый калибр использует тот же профиль.
     r = 0.8;
-    if(grip_rib_height > 0)
-        for(v=[-slot_t/2+grip_rib_height-r,
-               slot_t/2-grip_rib_height+r])
+    if(vysota_reber_prizhima > 0)
+        for(v=[-slot_t/2+vysota_reber_prizhima-r,
+               slot_t/2-vysota_reber_prizhima+r])
             hull() for(u=[-slot_w/2+1.5,slot_w/2-1.5])
-                translate([u,v,loop_length/2]) sphere(r=r,$fn=32);
+                translate([u,v,dlina_ushka/2]) sphere(r=r,$fn=32);
     }
 }
 
 function holder_outer_radius() = outer_r;
 function loop_profile_height() = loop_outer_h;
-// Shared assembly dimensions for optional collar-captured protective grille.
-// Pure accessor: the original holder and fit-test geometry are unchanged.
+// Общие размеры сборки для накладки, удерживаемой ремнём.
+// Возвращает размеры; самостоятельно геометрию не меняет.
 function holder_geometry() = [outer_r,ring_base,ring_height,
-    tag_back+tag_thickness,loop_outer_h,loop_x,loop_length,arm_y,print_lift];
+    tag_back+tolshchina_metki,loop_outer_h,loop_x,dlina_ushka,arm_y,print_lift];
 
 module belt_loop(s=1) {
-    translate([s*loop_x-loop_length/2,0,loop_outer_h/2])
+    translate([s*loop_x-dlina_ushka/2,0,loop_outer_h/2])
         multmatrix([[0,0,1,0],[1,0,0,0],[0,1,0,0],[0,0,0,1]])
             closed_loop_local();
 }
 
 module bridge_arm(sx,sy) {
     $fn = 48;
-    // Four rounded risers; 1.2 mm embed into loop side wall / roof.
+    // Четыре скруглённые стойки; заход в стенку/крышу ушка на 1,2 мм.
     arm_z = loop_outer_h-1.2;
-    arm_h = ring_base+arm_height-arm_z;
+    arm_h = ring_base+vysota_zahoda_stoyki-arm_z;
     translate([0,0,arm_z]) hull() {
         for(x=[sx*arm_root_x,sx*loop_x])
             translate([x,sy*arm_y,0]) {
                 for(z=[0.35,arm_h-0.35-eps])
-                    translate([0,0,z]) cylinder(r=arm_width/2,h=eps);
+                    translate([0,0,z]) cylinder(r=shirina_stoyki/2,h=eps);
                 for(z=[0,arm_h-eps])
-                    translate([0,0,z]) cylinder(r=arm_width/2-0.35,h=eps);
+                    translate([0,0,z]) cylinder(r=shirina_stoyki/2-0.35,h=eps);
             }
     }
 }
@@ -199,7 +231,7 @@ module holder_installed() {
             for(s=[-1,1]) belt_loop(s);
             for(sx=[-1,1],sy=[-1,1]) bridge_arm(sx,sy);
         }
-        // Cut AFTER union: web roots must never intrude into tag cavity.
+        // Полость вычитается после объединения, чтобы стойки не заходили в метку.
         translate([0,0,ring_base]) {
             tag_void();
             speaker_cut();
@@ -208,38 +240,38 @@ module holder_installed() {
 }
 
 module tag_reference() {
-    e = tag_edge_radius_assumed;
+    e = predpolagaemoe_skruglenie_metki;
     translate([0,0,tag_back])
         if(e>0) rotate_extrude() polygon(concat(
-            [[0,0],[tag_diameter/2-e,0]],
-            [for(a=[-90:5:0]) [tag_diameter/2-e+e*cos(a),e+e*sin(a)]],
-            [[tag_diameter/2,tag_thickness-e]],
+            [[0,0],[diametr_metki/2-e,0]],
+            [for(a=[-90:5:0]) [diametr_metki/2-e+e*cos(a),e+e*sin(a)]],
+            [[diametr_metki/2,tolshchina_metki-e]],
             [for(a=[0:5:90])
-                [tag_diameter/2-e+e*cos(a),tag_thickness-e+e*sin(a)]],
-            [[0,tag_thickness]]));
-        else cylinder(d=tag_diameter,h=tag_thickness);
+                [diametr_metki/2-e+e*cos(a),tolshchina_metki-e+e*sin(a)]],
+            [[0,tolshchina_metki]]));
+        else cylinder(d=diametr_metki,h=tolshchina_metki);
 }
 
 module references() {
     %color([0.2,0.6,0.9,0.45]) tag_reference();
     %color([0.45,0.22,0.1,0.45])
-        translate([-34,-collar_width/2,loop_wall+collar_thickness_clearance/2])
-            cube([68,collar_width,collar_thickness]);
+        translate([-34,-shirina_osheynika/2,tolshchina_stenki_ushka+zazor_remnya_po_tolshchine/2])
+            cube([68,shirina_osheynika,tolshchina_osheynika]);
 }
 
 module output_model() {
     holder_installed();
-    if(show_reference && $preview) references();
+    if(pokazat_metku_i_remen && $preview) references();
 }
 
-if(print_orientation)
+if(polozhenie_dlya_pechati)
     translate([0,0,print_lift]) rotate([45,0,0]) output_model();
 else output_model();
 
 echo(bore_diameter=2*bore_r, lip_throat_diameter=2*throat_r,
      collar_slot=[slot_w,slot_t], ring_height=ring_height,
      installed_height=ring_base+ring_height,
-     rear_air_gap_min=tag_back-(loop_wall+slot_t),
+     rear_air_gap_min=tag_back-(tolshchina_stenki_ushka+slot_t),
      curve_sag=curvature_sag, minimum_curved_air_gap=tag_back-
-        (loop_wall+slot_t+curvature_sag),
-     nominal_equator_stretch_percent=100*(tag_diameter/(2*throat_r)-1));
+        (tolshchina_stenki_ushka+slot_t+curvature_sag),
+     nominal_equator_stretch_percent=100*(diametr_metki/(2*throat_r)-1));

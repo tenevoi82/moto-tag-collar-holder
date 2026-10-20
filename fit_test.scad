@@ -1,18 +1,19 @@
-/* Cheap first print: full circumference ring + separate closed-loop gauge.
-   Module imports use the original source's lexical fit parameters.
-   Override values with -D, or change defaults in the main source.
-   Coupon is printed flat WITHOUT the rear acoustic window; no supports.
-   The continuous rear lip is a conservative retention check.
-   Install/removal test must use the SAME filament, scale and layer height. */
+/* Исторический тест: кольцо и отдельный калибр ушка, две детали.
+   Настройки посадки берутся из moto_tag_collar_holder.scad.
+   Кольцо печатается плашмя без поддержек и БЕЗ заднего звукового выреза.
+   Поэтому этот тест проверяет размеры и ощущения при установке,
+   но НЕ воспроизводит заднее удержание основного корпуса.
+   Совпадение материала, масштаба и слоя не устраняет это различие. */
 
-// OpenSCAD imports module definitions with their original lexical globals.
+// Импортированные модули используют параметры из своего исходного файла.
 use <moto_tag_collar_holder.scad>
 
-// Additional coupon settings independent of the main output transform.
-coupon_gap = 4;
+// Раскладка теста не зависит от поворота основной модели.
+// Расстояние между тестовым кольцом и калибром ушка, мм
+promezhutok_mezhdu_obraztsami = 4;
 coupon_outer_r = holder_outer_radius();
 coupon_slot_h = loop_profile_height();
 
 ring_only(false);
-translate([coupon_outer_r + coupon_gap + coupon_slot_h/2,0,0])
+translate([coupon_outer_r + promezhutok_mezhdu_obraztsami + coupon_slot_h/2,0,0])
     rotate([0,0,90]) closed_loop_local();

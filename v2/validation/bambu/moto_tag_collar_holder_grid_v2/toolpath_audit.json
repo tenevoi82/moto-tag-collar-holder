@@ -1,0 +1,45 @@
+{
+  "layer_change_count_including_support_layers": 320,
+  "extrusion_roles": {
+    "Support": 19148,
+    "Brim": 1417,
+    "Outer wall": 27050,
+    "Inner wall": 30661,
+    "Gap infill": 11513,
+    "Internal solid infill": 538,
+    "Top surface": 1019,
+    "Support transition": 954,
+    "Support interface": 1121,
+    "Overhang wall": 243
+  },
+  "supported_new_model_components": [
+    {
+      "layer": 36,
+      "z_mm": 4.0,
+      "footprint_mm2": 6.72
+    },
+    {
+      "layer": 40,
+      "z_mm": 4.4,
+      "footprint_mm2": 0.66
+    },
+    {
+      "layer": 40,
+      "z_mm": 4.4,
+      "footprint_mm2": 0.66
+    },
+    {
+      "layer": 208,
+      "z_mm": 23.2,
+      "footprint_mm2": 9.7
+    },
+    {
+      "layer": 208,
+      "z_mm": 23.2,
+      "footprint_mm2": 9.7
+    }
+  ],
+  "unanchored_component_candidates": [],
+  "audit_resolution_mm": 0.1,
+  "audit_limits": "Raster footprints detect whole new islands only; 0.5 mm XY tolerance and 0.75 mm support history. Not a guarantee of local overhang quality, support removal or physical adhesion."
+}
